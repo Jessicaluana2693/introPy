@@ -36,101 +36,55 @@ def brincar_de_plim(fim):
         else:
             print('{:0>3}'.format(numero))
 
-def exibir_dia_da_semana(numero):
-    print('Exemplo do If - Elif - Else:')
-    if numero == 1:
-        print('O dia é segunda')
-    elif numero == 2:
-        print('O dia é terça')
-    elif numero == 3:
-        print('O dia é quarta')
-    elif numero == 4:
-        print('O dia é quinta')
-    elif numero == 5:
-        print('O dia é sexta')
-    elif numero == 6:
-        print('O dia é sábado')
-    elif numero == 7:
-        print('O dia é domingo')
-    else:
-        print('Opção inválida')
-
-def exibir_dia_da_semana_match(numero):
-    print('Exemplo do Match:')
-    match numero:
-        case 1:
-            print('O dia é segunda')
-        case 2:
-            print('O dia é terça')
-        case 3:
-            print('O dia é quarta')
-        case 4:
-            print('O dia é quinta')
-        case 5:
-            print('O dia é sexta')
-        case 6:
-            print('O dia é sábado')
-        case 7:
-            print('O dia é domingo')
-        case _:
-            print("Valor {} é inválido".format(numero)) #wild card - caso genérico
-
-def fim_de_semana(dia):
-    print('Match usando operador lógico OU')
-    match dia:
-        case 'Domingo' | 'Sábado':
-            return 'É Fim de semana'
-        case 'Segunda' | 'Terça' | 'Quarta' | 'Quinta' | 'Sexta':
-            return 'É dia útil'
-        case _:
-            return 'valor desconhecido'
-
-def contas(centros):
-    print('Match usando listas:')
-    match centros:
-        case [area, centros]: # Apenas 1 centro de custo
-            print('A área {} possui o centro de custo {}'.format(area, centros))
-        case [area, *centros]: # 2 centros ou mais
-            print('A área {} possui os centros de custo abaixo:'.format(area))
-            for centro in centros:
-                print(centro)
-
-
-
 # estrutura de identificação / execução do script
 if __name__ == '__main__':
-    print_hi('Tete')
+    resposta = 'C'
 
-    #chamar a função do calculo da area do retangulo
-    resultado = calcular_area_do_retangulo(3,4)
-    print(f'Area do rentângulo: {resultado} metros quadrados')
+    while resposta.upper() != 'Z':
+        print('==================================')
+        print('#                               #')
+        print('   M E N U   D E   O P Ç Õ E S  #')
+        print('#                               #')
+        print('#    [1] - Olá Mundo            #')
+        print('#    [2] - Áre do Retângulo     #')
+        print('#    [3] - Áre do Quadrado      #')
+        print('#    [4] - Áre do Triângulo     #')
+        print('#    [5] - Contagem Progressiva #')
+        print('#    [6] - Candidato            #')
+        print('#    [7] - Brincar de PLIM      #')
+        print('#                               #')
+        print('#    [Z] - Sair                 #')
+        print('#                               #')
+        print('==================================')
 
-    #chamar a função de calculo do quadrado
-    resultado = calcular_area_do_quadrado(5)
-    print(f'Area do quadrado: {resultado} metros quadrados')
+        resposta = input('Escolha sua opção: ')
+        print(f'Opção escolhida: {resposta}')
 
-    #chamar a função do triangulo
-    resultado = calcular_area_do_triangulo(6, 7)
-    print(f'Area do triangulo: {resultado} metros quadrados')
+        if resposta.upper() != 'Z':
+            if resposta == '1':
+                print_hi('Tete')
+            elif resposta == '2':
+                resultado = calcular_area_do_retangulo(4, 8)
+                print(f'Resultado: {resultado}')
+            elif resposta == '3':
+                resultado = calcular_area_do_quadrado(4)
+                print(f'Resultado: {resultado}')
+            elif resposta == '4':
+                resultado = calcular_area_do_triangulo(3, 5)
+                print(f'Resultado: {resultado}')
+            elif resposta == '5':
+                contagem_progressiva(10)
+            elif resposta == '6':
+                candidato('Fake', 8)
+            elif resposta == '7':
+                brincar_de_plim(12)
+            else:
+                print('Escolha inválida!!!')
+        else:
+            print('Você escolheu sair.')
 
-    #executar a contagem progressiva
-    contagem_progressiva(11)
 
-    #mostrando o nome do candidato varias vezes
-    candidato('Faker', 100)
 
-    #brincar de plim
-    brincar_de_plim(100)
 
-    # exemplo de dia da semana com if estrutura
-    exibir_dia_da_semana(11)
 
-    #exemplo dia da semana com match - case
-    exibir_dia_da_semana_match(0)
 
-    #exemplo de fim de semana usando match case
-    print(fim_de_semana('batata'))
-
-    #exemplo de match case usando listas
-    contas(['Financeiro', 'ABC'])
-    contas(['Marketing', 'XYZ', 'JKL', 'XUXU'])
