@@ -36,7 +36,64 @@ def brincar_de_plim(fim):
         else:
             print('{:0>3}'.format(numero))
 
+def exibir_dia_da_semana(numero):
+    print('Exemplo do If - Elif - Else:')
+    if numero == 1:
+        print('O dia é segunda')
+    elif numero == 2:
+        print('O dia é terça')
+    elif numero == 3:
+        print('O dia é quarta')
+    elif numero == 4:
+        print('O dia é quinta')
+    elif numero == 5:
+        print('O dia é sexta')
+    elif numero == 6:
+        print('O dia é sábado')
+    elif numero == 7:
+        print('O dia é domingo')
+    else:
+        print('Opção inválida')
 
+def exibir_dia_da_semana_match(numero):
+    print('Exemplo do Match:')
+    match numero:
+        case 1:
+            print('O dia é segunda')
+        case 2:
+            print('O dia é terça')
+        case 3:
+            print('O dia é quarta')
+        case 4:
+            print('O dia é quinta')
+        case 5:
+            print('O dia é sexta')
+        case 6:
+            print('O dia é sábado')
+        case 7:
+            print('O dia é domingo')
+        case _:
+            print("Valor {} é inválido".format(numero)) #wild card - caso genérico
+
+def fim_de_semana(dia):
+    print('Match usando operador lógico OU')
+    match dia:
+        case 'Domingo' | 'Sábado':
+            return 'É Fim de semana'
+        case 'Segunda' | 'Terça' | 'Quarta' | 'Quinta' | 'Sexta':
+            return 'É dia útil'
+        case _:
+            return 'valor desconhecido'
+
+def contas(centros):
+    print('Match usando listas:')
+    match centros:
+        case [area, centros]: # Apenas 1 centro de custo
+            print('A área {} possui o centro de custo {}'.format(area, centros))
+        case [area, *centros]: # 2 centros ou mais
+            print('A área {} possui os centros de custo abaixo:'.format(area))
+            for centro in centros:
+                print(centro)
 
 
 
@@ -65,3 +122,15 @@ if __name__ == '__main__':
     #brincar de plim
     brincar_de_plim(100)
 
+    # exemplo de dia da semana com if estrutura
+    exibir_dia_da_semana(11)
+
+    #exemplo dia da semana com match - case
+    exibir_dia_da_semana_match(0)
+
+    #exemplo de fim de semana usando match case
+    print(fim_de_semana('batata'))
+
+    #exemplo de match case usando listas
+    contas(['Financeiro', 'ABC'])
+    contas(['Marketing', 'XYZ', 'JKL', 'XUXU'])
